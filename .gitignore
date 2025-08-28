@@ -1,0 +1,10 @@
+node_modules
+
+.env
+
+build
+
+# IDEs & editors
+.vscode
+.idea
+.DS_Store
