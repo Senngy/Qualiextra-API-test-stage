@@ -22,7 +22,7 @@ const config: runtime.GetPrismaClientConfig = {
       "value": "prisma-client"
     },
     "output": {
-      "value": "C:\\Users\\sylva\\Documents\\MrRobot\\Test Stage\\QualiExtra\\API REST Qualiextra (test stage)\\src\\generated\\prisma",
+      "value": "C:\\Users\\sylva\\Documents\\MrRobot\\Test Stage\\QualiExtra\\Qualiextra-API-test-stage\\src\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -36,7 +36,7 @@ const config: runtime.GetPrismaClientConfig = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\sylva\\Documents\\MrRobot\\Test Stage\\QualiExtra\\API REST Qualiextra (test stage)\\prisma\\schema.prisma",
+    "sourceFilePath": "C:\\Users\\sylva\\Documents\\MrRobot\\Test Stage\\QualiExtra\\Qualiextra-API-test-stage\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativePath": "../../../prisma",
