@@ -24,13 +24,13 @@
   "type": "commonjs",
   "scripts": {
     "dev": "tsc-watch --onSuccess \"node ./build/app.js\"",
-    "build": "npm run tsoa:spec && npm run tsoa:routes && tsc",
-    "start": "node build/app.js",
-    "tsoa:spec": "tsoa spec",
-    "tsoa:routes": "tsoa routes",
-    "tsoa:swagger": "tsoa swagger",
-    "prisma:generate": "prisma generate",
-    "prisma:migrate": "prisma migrate dev"
+  "build": "npm run tsoa:spec && npm run tsoa:routes && tsc && npm run prisma:generate",
+  "start": "node build/app.js",
+  "tsoa:spec": "tsoa spec",
+  "tsoa:routes": "tsoa routes",
+  "tsoa:swagger": "tsoa swagger",
+  "prisma:generate": "prisma generate",
+  "prisma:migrate": "prisma migrate dev"
   },
   "engines": {
     "node": "20.x",
