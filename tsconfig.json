@@ -43,7 +43,8 @@
     "rootDir": "./src", // dossier source
     "outDir": "./build", // dossier de compilation
     "esModuleInterop": true, // pour importer des modules CommonJS
-    "moduleResolution": "node", // résolution des modules à la manière de Node.js
+    "moduleResolution": "node10", // résolution des modules à la manière de Node.js
+    "ignoreDeprecations": "6.0",
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true, // permet d'importer des fichiers JSON
     "allowJs": true, // permet d'importer des fichiers JS

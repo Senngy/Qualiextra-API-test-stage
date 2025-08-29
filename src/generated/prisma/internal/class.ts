@@ -33,6 +33,10 @@ const config: runtime.GetPrismaClientConfig = {
         "fromEnvVar": null,
         "value": "windows",
         "native": true
+      },
+      {
+        "fromEnvVar": null,
+        "value": "debian-openssl-3.0.x"
       }
     ],
     "previewFeatures": [],
@@ -55,8 +59,8 @@ const config: runtime.GetPrismaClientConfig = {
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client\" // instead of \"prisma-client-js\" older version\n  output   = \"../src/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id                Int      @id @default(autoincrement())\n  firstname         String\n  name              String\n  email             String   @unique\n  password          String\n  role              Role     @default(USER)\n  verified          Boolean  @default(false)\n  verificationToken String?  @db.VarChar(255)\n  createdAt         DateTime @default(now()) @db.Timestamptz(6)\n  updatedAt         DateTime @updatedAt @db.Timestamptz(6)\n}\n\nenum Role {\n  USER\n  ADMIN\n}\n",
-  "inlineSchemaHash": "88effcc194c81addb23a0c6cbc3385ca92020e86a8dc729c34c932ca6b3e59af",
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider      = \"prisma-client\" // instead of \"prisma-client-js\" older version\n  binaryTargets = [\"native\", \"debian-openssl-3.0.x\"]\n  output        = \"../src/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id                Int      @id @default(autoincrement())\n  firstname         String\n  name              String\n  email             String   @unique\n  password          String\n  role              Role     @default(USER)\n  verified          Boolean  @default(false)\n  verificationToken String?  @db.VarChar(255)\n  createdAt         DateTime @default(now()) @db.Timestamptz(6)\n  updatedAt         DateTime @updatedAt @db.Timestamptz(6)\n}\n\nenum Role {\n  USER\n  ADMIN\n}\n",
+  "inlineSchemaHash": "6c6748c3711aa22138aa0835b5486450ea7c0ec711fddaa3006a7296f5005158",
   "copyEngine": true,
   "runtimeDataModel": {
     "models": {},
