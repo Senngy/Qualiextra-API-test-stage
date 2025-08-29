@@ -24,7 +24,7 @@
   "type": "commonjs",
   "scripts": {
     "dev": "tsc-watch --onSuccess \"node ./build/app.js\"",
-    "prisma:generate": "prisma generate --schema=./prisma/schema.prisma --binary-targets native,debian-openssl-3.0.x",
+    "prisma:generate": "prisma generate --schema=./prisma/schema.prisma",
     "build": "npm run tsoa:spec && npm run tsoa:routes && tsc && npm run prisma:generate",
     "start": "node build/app.js",
     "tsoa:spec": "tsoa spec",
