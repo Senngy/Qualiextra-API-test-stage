@@ -24,12 +24,12 @@
   "type": "commonjs",
   "scripts": {
     "dev": "tsc-watch --onSuccess \"node ./build/app.js\"",
+  "prisma:generate": "prisma generate --binary-targets native,debian-openssl-3.0.x",
   "build": "npm run tsoa:spec && npm run tsoa:routes && tsc && npm run prisma:generate",
   "start": "node build/app.js",
   "tsoa:spec": "tsoa spec",
   "tsoa:routes": "tsoa routes",
   "tsoa:swagger": "tsoa swagger",
-  "prisma:generate": "prisma generate",
   "prisma:migrate": "prisma migrate dev"
   },
   "engines": {
