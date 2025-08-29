@@ -23,15 +23,18 @@
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsc-watch --onSuccess \"node ./build/app.js\"",
-    "build": "tsc",
+    "build": "npm run tsoa:spec && npm run tsoa:routes && tsc",
     "start": "node build/app.js",
     "tsoa:spec": "tsoa spec",
     "tsoa:routes": "tsoa routes",
+    "tsoa:swagger": "tsoa swagger",
     "prisma:generate": "prisma generate",
-    "prisma:migrate": "prisma migrate dev",
-    "tsoa:swagger": "tsoa swagger"
+    "prisma:migrate": "prisma migrate dev"
+  },
+  "engines": {
+    "node": "20.x",
+    "npm": "10.x"
   },
   "keywords": [],
   "author": "",
