@@ -18,21 +18,13 @@ Il consiste en la création d'une API REST sécurisée avec gestion des utilisat
 - PostgreSQL
 - Crypto Node.js pour le hashage des mots de passe
 
-### Front-End
-
-- Next.js 13 avec App Router
-- Tailwind CSS
-- Responsive et conforme à la maquette fournie
-
----
-
 ## 💾 Base de données
 
 ### Configuration locale
 
-- PostgreSQL utilisé localement
+- PostgreSQL utilisé localement et création d'un utilisateur et du base de donnée dédiés.
 - Base : `qualiextra_test`
-- Utilisateur dédié au projet : `qualiextra_user` (non superuser pour plus de sécurité)
+- Utilisateur dédié au projet : `qualiextra_user` 
 
 #### Commandes SQL pour setup local
 
@@ -65,7 +57,7 @@ DATABASE_URL="postgresql://qualiextra_user:motdepasse@localhost:5432/qualiextra_
 
 ```bash
 # Installer les dépendances
-np#m install
+npm install
 
 # Générer le client Prisma
 npx prisma generate
@@ -77,16 +69,6 @@ npx prisma migrate dev --name init
 npm run dev
 ```
 
-### Client
-
-```bash
-# Installer les dépendances
-npm install
-
-# Lancer le dev server
-npm run dev
-```
-
 ## 🔑 Fonctionnalités
 
 ### API
@@ -94,19 +76,13 @@ npm run dev
 - CRUD utilisateurs
 - Authentification `/login`
 - Route privée `/private` accessible uniquement aux utilisateurs connectés
+- Ajout d'une route `/register` pour les
 - Gestion des rôles (Admin/User)
 - Vérification d'email avec token unique
 - Blocage des emails temporaires
 - Swagger pour tester l’API
 
-### Front
-
-- Page mission intégrée avec maquette respectée
-- Responsive pour mobile, tablette et desktop
-- Structure claire avec `app/mission`, `components` et `styles`
-
 ### ⚡ Notes techniques
 
 - Hash des mots de passe avec `crypto.scrypt` (sel + hash) sécurisé
 - Service dédié pour les utilisateurs (`UserService`) séparé du contrôleur (`UsersController`)
-- Aliases TypeScript utilisés pour imports clairs (`@utils/*`, `@services/*`)
