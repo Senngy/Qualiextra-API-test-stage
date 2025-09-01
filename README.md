@@ -65,6 +65,13 @@ npx prisma generate
 # Créer la base via Prisma (si migrations nécessaires)
 npx prisma migrate dev --name init
 
+# Générer la documentation OpenAPI et les routes avec TSOA
+npm run tsoa:spec
+npm run tsoa:routes
+
+# Compiler TypeScript
+npm run build
+
 # Lancer le serveur
 npm run dev
 ```
