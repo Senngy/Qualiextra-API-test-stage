@@ -257,6 +257,36 @@ export function RegisterRoutes(app: Router) {
             }
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+        const argsRegisterController_verifiedUser: Record<string, TsoaRoute.ParameterSchema> = {
+                token: {"in":"query","name":"token","required":true,"dataType":"string"},
+        };
+        app.get('/register/verify-email',
+            ...(fetchMiddlewares<RequestHandler>(RegisterController)),
+            ...(fetchMiddlewares<RequestHandler>(RegisterController.prototype.verifiedUser)),
+
+            async function RegisterController_verifiedUser(request: ExRequest, response: ExResponse, next: any) {
+
+            // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+            let validatedArgs: any[] = [];
+            try {
+                validatedArgs = templateService.getValidatedArgs({ args: argsRegisterController_verifiedUser, request, response });
+
+                const controller = new RegisterController();
+
+              await templateService.apiHandler({
+                methodName: 'verifiedUser',
+                controller,
+                response,
+                next,
+                validatedArgs,
+                successStatus: 200,
+              });
+            } catch (err) {
+                return next(err);
+            }
+        });
+        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         const argsPrivateController_sayHelloToUser: Record<string, TsoaRoute.ParameterSchema> = {
                 req: {"in":"request","name":"req","required":true,"dataType":"object"},
         };

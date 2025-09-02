@@ -13,7 +13,9 @@ export interface AuthRequest extends Request { // On étend l'interface Request 
 // attache les infos utilisateur décodées à la requête pour les routes protégées
 // ce qui permet de savoir qui fait la requête et avec quel rôle (ADMIN ou USER)
 export function authenticateByJWT(req: AuthRequest, res: Response, next: NextFunction) {
+    console.log(req.headers)
     const authHeader = req.headers["authorization"]; 
+    //console.log(authHeader)
     if (!authHeader) {
         return res.status(401).json({ message: "Authorization header missing" });
     }
@@ -25,6 +27,7 @@ export function authenticateByJWT(req: AuthRequest, res: Response, next: NextFun
 
     try {
         const user = authService.verifyToken(token); // On vérifie et décode le token
+        console.log("user auth middleware", user)
         req.currentUser = user; // On attache les infos utilisateur à la requête
         next();
     } catch (error) {

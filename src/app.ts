@@ -31,8 +31,9 @@ app.use("/docs", swaggerUi.serve, async (req: Request, res: Response) => {
 // Exemple : routes commençant par /users nécessitent authentification
 app.use('/users', authenticateByJWT);
 
-// Routes publiques
+// TSOA monte les routes
 RegisterRoutes(app);
+
 
 // Gestion des erreurs centralisée
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {

@@ -21,4 +21,16 @@ export class RegisterController extends Controller {
     public async register(@Body() body: UserCreationParams): Promise<UserOutput> {
         return this.authService.registerUser(body);
     }
+
+    @SuccessResponse(200, "Email verified")
+    @Get("verify-email")
+    public async verifiedUser(@Query() token: string): Promise<{ message: string }> {
+        const userVerified = await this.authService.verifyEmail(token)
+
+        if(!userVerified) {
+            this.setStatus(400);
+            return { message : "Token invalide ou expiré"}
+        }
+        return { message: "Email verifié avec succès"}
+    }
 }

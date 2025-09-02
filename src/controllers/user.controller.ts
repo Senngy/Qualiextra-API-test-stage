@@ -48,7 +48,9 @@ export class UserController extends Controller {
     @SuccessResponse(201, "Created")
     @Post()
     public async createUser(@Body() body: UserCreationParams, @Request() req: AuthRequest): Promise<UserOutput> {
+        console.log(req.currentUser);
         const currentUser = req.currentUser!;
+        console.log(currentUser);
 
         if (currentUser.role !== "ADMIN") { // Seul l’admin peut créer des utilisateurs
             throw new Error("Unauthorized"); 
