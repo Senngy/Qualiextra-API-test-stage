@@ -3,7 +3,7 @@ import type { Role as PrismaRole } from "../generated/prisma/client"; // utilise
 
 export type UserRole = PrismaRole; // alias, clair et sans duplication pour tsoa
 
-export type UserOutput = {
+export type UserOutput = { // Pour definir les infos retournés, ici on ne renvoi pas le mot de passe
   id: number;
   firstname: string;
   name: string;
@@ -14,7 +14,7 @@ export type UserOutput = {
   updatedAt: Date;
 };
 
-export interface UserCreationParams {
+export interface UserCreationParams { // Définissions des paramètres nécessaires à la création d'un utilsateur
   firstname: string;
   name: string;
   email: string;
@@ -22,7 +22,7 @@ export interface UserCreationParams {
   role?: UserRole; // facultatif, par défaut USER
 }
 
-export function toUserOutput(user: { 
+export function toUserOutput(user: {  // Fonction pour transformé User en UserOutPut
   id: number; 
   firstname: string; 
   name: string; 

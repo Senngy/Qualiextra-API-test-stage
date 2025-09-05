@@ -3,7 +3,8 @@ import express, { Request, Response, NextFunction } from 'express';
 import "dotenv/config";
 import dotenv from 'dotenv';
 import cors from 'cors';
-import swaggerUi from 'swagger-ui-express';
+import * as swaggerUI from 'swagger-ui-express';
+import * as swaggerJson from "../build/swagger/swagger.json";
 import { RegisterRoutes } from './routes/routes'; // Routes générées par TSOA
 import { authenticateByJWT } from './middlewares/auth.middleware';
 
@@ -20,19 +21,16 @@ app.use(cors({ origin: allowedOrigins }));
 // Parser JSON
 app.use(express.json());
 
-// Swagger - accessible publiquement
-app.use("/docs", swaggerUi.serve, async (req: Request, res: Response) => {
-  return res.send(
-    swaggerUi.generateHTML(await import("../build/swagger/swagger.json"))
-  );
-});
-
 // Middleware JWT sur les routes privées seulement
 // Exemple : routes commençant par /users nécessitent authentification
 app.use('/users', authenticateByJWT);
 
 // TSOA monte les routes
 RegisterRoutes(app);
+
+// Swagger
+// console.log("Swagger JSON chargé :", swaggerJson && Object.keys(swaggerJson));
+app.use(['/openapi', '/docs', '/swagger'], swaggerUI.serve, swaggerUI.setup(swaggerJson));
 
 
 // Gestion des erreurs centralisée
